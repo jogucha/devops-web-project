@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Campañas</title>
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="style.css">
+    <script src="js/campaigns.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="hamburger-btn material-symbols-rounded">menu</span>
+            <a href="#" class="logo">
+                <h2>DevOps Web Project</h2>
+            </a>
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="campaigns.html">Campaigns</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+                <li><a href="workers.html">Workers</a></li>
+            </ul>
+            <button class="login-btn">LOG IN</button>
+        </nav>
+    </header>
+    <div class="main-content">
+        <h1>Campañas</h1>
+        <table id="campaignsTable">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <h2>Crear Campaña</h2>
+        <form id="createCampaignForm">
+            <label>Código:
+                <input type="text" id="code" required>
+            </label>
+            <label>Nombre:
+                <input type="text" id="name" required>
+            </label>
+            <label>Descripción:
+                <input type="text" id="description" required>
+            </label>
+            <button type="submit" class="action-button">Crear</button>
+        </form>
+    </div>
+</body>
+</html>

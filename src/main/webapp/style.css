@@ -19,8 +19,9 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 10;
+/*    z-index: 10;*/
     padding: 0 10px;
+    display: contents;
 }
 
 .navbar {
@@ -101,6 +102,8 @@ header {
 .navbar .login-btn:hover {
     background: #ddd;
 }
+
+
 
 .form-popup {
     position: fixed;
@@ -245,6 +248,165 @@ form :where(.forgot-pass-link, .policy-text) {
     margin-top: 13px;
     font-size: 0.95rem;
 }
+/*FROM GPT - BEGIN*/
+/* Estilo para el contenedor principal de contenido */
+.main-content {
+    position: fixed;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    left: 0;
+    padding: 0 10px;
+}
+
+h1 {
+    color: #fff;
+}
+h2{
+    color: #fff;
+}
+
+form {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[readonly] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Fondo oscuro para resaltar popups */
+.task-popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+/* Popup container general */
+.task-form-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Mostrar popup */
+.task-form-popup.task-show-popup {
+    display: block;
+}
+
+/* Título del popup */
+.task-form-popup h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+/* Campo de búsqueda en popups */
+.task-form-popup input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Lista de resultados */
+.task-form-popup ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.task-form-popup ul li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.task-form-popup ul li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo de botones individuales */
+button.action-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.action-button:hover {
+    background-color: #218838;
+}
+
+button.delete-button {
+    background-color: #dc3545;
+}
+
+button.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilo de tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table tbody {
+    color: #fff;
+}
+
+/*FROM GPT - END*/
 
 form button {
     width: 100%;
