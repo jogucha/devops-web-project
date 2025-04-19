@@ -55,20 +55,6 @@ function createTask(data) {
         .catch(err => alert(`Error al crear tarea: ${err.message}`));
 }
 
-// Eliminar tarea
-function deleteTask(id) {
-    loadProperties()
-        .then(props => fetch(`${props['api.tasks.url']}/${id}`, {
-            method: 'DELETE',
-            headers: corsHeaders
-        }))
-        .then(res => {
-            if (!res.ok) throw new Error("No se pudo eliminar tarea");
-            loadTasks();
-        })
-        .catch(err => alert(`Error al eliminar tarea: ${err.message}`));
-}
-
 // Mostrar tabla de tareas
 function renderTasks(data) {
     const tbody = document.querySelector("#tasksTable tbody");
@@ -78,11 +64,12 @@ function renderTasks(data) {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${task.id}</td>
-            <td>${task.title}</td>
+            <td>${task.name}</td>
             <td>${task.description}</td>
-            <td>${task.campaign?.name || '—'}</td>
-            <td>${task.assignee?.name || '—'}</td>
-            <td><button class="delete-button" onclick="deleteTask(${task.id})">Eliminar</button></td>
+            <td>${task.campaignId}</td>
+            <td>${task.assignee?.lastName || '-'}, ${task.assignee?.firstName || '-'}</td>
+            <td>${task.dueDate}</td>
+            <td>${task.estimatedHours}</td>
         `;
         tbody.appendChild(row);
     });
@@ -95,19 +82,30 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("createTaskForm").addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const title = document.getElementById("title").value;
+        const name = document.getElementById("name").value;
         const description = document.getElementById("description").value;
+        var today =new Date();
+        today.setDate(today.getDate() + 30);
+        const dueDate = today;
+        const status = "To Do";
+        const campaignId = document.getElementById("campaignId").value;
+        const workerId = document.getElementById("workerId").value;
+        const estimatedHours = document.getElementById("estimatedHours").value;
 
-        if (!selectedCampaign || !selectedWorker) {
-            alert("Debes seleccionar una campaña y un trabajador.");
+        if (!selectedWorker) {
+            alert("Debes seleccionar un trabajador.");
             return;
         }
-
+        console.log(selectedWorker);
         createTask({
-            title,
+            name,
             description,
-            campaign: selectedCampaign,
-            assignee: selectedWorker
+            dueDate,
+            status,
+            campaignId,
+            workerId,
+            assignee: selectedWorker,
+            estimatedHours
         });
     });
 });
@@ -141,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         li.onclick = () => {
                             selectedCampaign = c;
                             document.getElementById("campaignName").value = c.name;
+                            document.getElementById("campaignId").value = c.id;
                             closeCampaignPopup();
                         };
                         list.appendChild(li);
@@ -180,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     li.onclick = () => {
                         selectedWorker = w;
                         document.getElementById("workerName").value = w.lastName + ", " + w.firstName;
+                        document.getElementById("workerId").value = w.id;
                         closeWorkerPopup();
                     };
                     list.appendChild(li);
@@ -192,3 +192,4 @@ document.addEventListener("DOMContentLoaded", () => {
         closeCampaignPopup();
         closeWorkerPopup();
     }
+

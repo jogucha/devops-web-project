@@ -49,20 +49,6 @@ function createWorker(data) {
         .catch(err => alert(`Error al crear trabajador: ${err.message}`));
 }
 
-// Eliminar trabajador
-function deleteWorker(id) {
-    loadProperties()
-        .then(props => fetch(`${props['api.workers.url']}/${id}`, {
-            method: 'DELETE',
-            headers: corsHeaders
-        }))
-        .then(res => {
-            if (!res.ok) throw new Error("No se pudo eliminar");
-            loadWorkers();
-        })
-        .catch(err => alert(`Error al eliminar trabajador: ${err.message}`));
-}
-
 // Mostrar tabla de trabajadores
 function renderWorkers(data) {
     const tableBody = document.querySelector("#workersTable tbody");
@@ -74,7 +60,6 @@ function renderWorkers(data) {
             <td>${worker.id}</td>
             <td>${worker.lastName}, ${worker.firstName} </td>
             <td>${worker.user.email}</td>
-            <td><button class="delete-button" onclick="deleteWorker(${worker.id})">Eliminar</button></td>
         `;
         tableBody.appendChild(row);
     });
@@ -86,8 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("createWorkerForm").addEventListener("submit", event => {
         event.preventDefault();
-        const name = document.getElementById("name").value;
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
         const email = document.getElementById("email").value;
-        createWorker({ name, email });
+        createWorker({user:{ email }, firstName, lastName });
     });
 });

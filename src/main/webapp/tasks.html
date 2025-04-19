@@ -30,11 +30,12 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Título</th>
+                    <th>nombre</th>
                     <th>Descripción</th>
                     <th>Campaña</th>
                     <th>Asignado a</th>
-                    <th>Acciones</th>
+                    <th>Fecha Vmto.</th>
+                    <th>Horas est.</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -43,7 +44,7 @@
         <h2>Crear Nueva Tarea</h2>
         <form id="createTaskForm">
             <label>Título:
-                <input type="text" id="title" required>
+                <input type="text" id="name" required>
             </label>
             <label>Descripción:
                 <input type="text" id="description" required>
@@ -56,6 +57,11 @@
                 <input type="text" id="workerName" readonly>
                 <button type="button" class="action-button" onclick="openWorkerPopup()">Buscar</button>
             </label>
+            <label>Horas Est.:
+                <input type="text" id="estimatedHours" required>
+            </label>
+            <input type="hidden" id="campaignId">
+            <input type="hidden" id="workerId">
             <button type="submit" class="action-button">Crear</button>
         </form>
     </main>

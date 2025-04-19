@@ -12,6 +12,7 @@ body {
     height: 100vh;
     width: 100%;
     background: url("images/hero-bg.jpg") center/cover no-repeat;
+    overflow: scroll;
 }
 
 header {
@@ -251,6 +252,7 @@ form :where(.forgot-pass-link, .policy-text) {
 /*FROM GPT - BEGIN*/
 /* Estilo para el contenedor principal de contenido */
 .main-content {
+    display: contents;
     position: fixed;
     margin: 0 auto;
     max-width: 1200px;
