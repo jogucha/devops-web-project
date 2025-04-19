@@ -27,7 +27,7 @@ header {
 
 .navbar {
     display: flex;
-    padding: 22px 0;
+    padding: 22px;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -261,24 +261,29 @@ form :where(.forgot-pass-link, .policy-text) {
     padding: 0 10px;
 }
 
-h1 {
+.main-content h1 {
+    margin: auto;
     color: #fff;
+    text-align: center;
 }
-h2{
+.main-content h2 {
+    margin: auto;
     color: #fff;
+    text-align: center;
 }
 
 form {
+    margin: auto;
     margin-top: 20px;
-    padding: 15px;
+    padding: 30px;
     border: 1px solid #ccc;
     background-color: #fafafa;
     border-radius: 5px;
-    max-width: 600px;
+    width: 60%;
 }
 
 form label {
-    display: block;
+    display: grid;
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -289,7 +294,6 @@ form input[type="number"],
 form input[readonly] {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -364,7 +368,14 @@ form input[readonly] {
 }
 
 /* Estilo de botones individuales */
-button.action-button {
+
+div.create-action-button-container {
+    margin: auto;
+    padding: 10px;
+    width: 10%;
+}
+
+button.search-action-button {
     padding: 5px 10px;
     margin-right: 5px;
     background-color: #28a745;
@@ -374,7 +385,19 @@ button.action-button {
     cursor: pointer;
 }
 
-button.action-button:hover {
+button.search-action-button:hover {
+    background-color: #218838;
+}
+button.create-action-button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.create-action-button:hover {
     background-color: #218838;
 }
 
@@ -388,9 +411,9 @@ button.delete-button:hover {
 
 /* Estilo de tablas */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    width: 80%;
+    padding: 15px;
+    margin: auto;
 }
 
 table th,
@@ -411,16 +434,10 @@ table tbody {
 /*FROM GPT - END*/
 
 form button {
-    width: 100%;
-    color: #fff;
-    border: none;
     outline: none;
-    padding: 14px 0;
     font-size: 1rem;
     font-weight: 500;
-    border-radius: 3px;
     cursor: pointer;
-    margin: 25px 0;
     background: #00bcd4;
     transition: 0.2s ease;
 }

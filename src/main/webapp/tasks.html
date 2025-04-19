@@ -16,11 +16,10 @@
             <ul class="links">
                 <span class="close-btn material-symbols-rounded">close</span>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="campaigns.html">Campaigns</a></li>
-                <li><a href="tasks.html">Tasks</a></li>
-                <li><a href="workers.html">Workers</a></li>
+                <li><a href="campaigns.html">Campañas</a></li>
+                <li><a href="tasks.html">Tareas</a></li>
+                <li><a href="workers.html">Trabajadores</a></li>
             </ul>
-            <button class="login-btn">LOG IN</button>
         </nav>
     </header>
     <main class="main-content">
@@ -51,18 +50,18 @@
             </label>
             <label>Campaña:
                 <input type="text" id="campaignName" readonly>
-                <button type="button" class="action-button" onclick="openCampaignPopup()">Buscar</button>
             </label>
+            <button type="button" class="search-action-button" onclick="openCampaignPopup()">Buscar</button>
             <label>Trabajador:
                 <input type="text" id="workerName" readonly>
-                <button type="button" class="action-button" onclick="openWorkerPopup()">Buscar</button>
             </label>
+            <button type="button" class="search-action-button" onclick="openWorkerPopup()">Buscar</button>
             <label>Horas Est.:
                 <input type="text" id="estimatedHours" required>
             </label>
             <input type="hidden" id="campaignId">
             <input type="hidden" id="workerId">
-            <button type="submit" class="action-button">Crear</button>
+            <div class="create-action-button-container"><button type="submit" class="create-action-button">Crear</button></div>
         </form>
     </main>
 
