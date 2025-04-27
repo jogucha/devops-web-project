@@ -22,6 +22,7 @@ pipeline {
         }
         stage('cleanup') {
           steps {
+            sh 'sudo su dockeradmin'
             sh 'docker container stop devops-web-project-server'
             sh 'docker container rm devops-web-project-server'
           }
