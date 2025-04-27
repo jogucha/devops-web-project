@@ -27,7 +27,7 @@ pipeline {
         }
         stage('build image') {
           steps {
-            sh 'docker build -t jogucha/devops-web-project:1 --label devops-web-project-server .'
+            sh 'docker build -t jogucha/devops-web-project:v1 --label devops-web-project-server .'
           }
         }
         stage('run container') {
