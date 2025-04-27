@@ -22,18 +22,17 @@ pipeline {
         }
         stage('cleanup') {
           steps {
-            sh 'docker container stop devops-web-project-server'
-            sh 'docker container rm devops-web-project-server'
+            sh 'docker system prune -a --volumes --force --filter "label=devops-web-project-server"'
           }
         }
         stage('build image') {
           steps {
-            sh 'docker build -t jogucha/devops-web-project:1 .'
+            sh 'docker build -t jogucha/devops-web-project:1 --label devops-web-project-server .'
           }
         }
         stage('run container') {
           steps {
-            sh 'docker run -d --name devops-web-project-server -p 8081:8080 jogucha/devops-web-project:v1'
+            sh 'docker run -d --name devops-web-project-server --label devops-web-project-server -p 8081:8080 jogucha/devops-web-project:v1'
           }
         }
     }
